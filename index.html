@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新婚旅行のしおり 🌺 沖縄・離島 2026</title>
+  <style>
+    /* ── Reset & Base ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN',
+                   'Noto Sans JP', sans-serif;
+      background: #F0FAFA;
+      color: #333;
+      line-height: 1.65;
+    }
+    a { color: inherit; text-decoration: none; }
+
+    /* ── Site Header ── */
+    .site-header {
+      background: linear-gradient(150deg, #004D5E 0%, #00838F 55%, #26C6DA 100%);
+      color: #fff;
+      text-align: center;
+      padding: 2.2rem 1rem 1.8rem;
+    }
+    .site-header .hero-emoji { font-size: 2.2rem; letter-spacing: .1em; }
+    .site-header h1 { font-size: 1.45rem; font-weight: 800; margin: .4rem 0 .3rem; letter-spacing: .04em; }
+    .site-header .meta { font-size: .88rem; opacity: .9; }
+
+    /* ── TOC ── */
+    .toc {
+      background: #fff;
+      max-width: 480px;
+      margin: 1.3rem auto;
+      border-radius: 14px;
+      box-shadow: 0 2px 12px rgba(0,0,0,.09);
+      overflow: hidden;
+    }
+    .toc-title {
+      background: #00838F;
+      color: #fff;
+      padding: .65rem 1rem;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+    }
+    .toc-list { list-style: none; }
+    .toc-list li { border-bottom: 1px solid #f0f0f0; }
+    .toc-list li:last-child { border-bottom: none; }
+    .toc-list a {
+      display: flex;
+      align-items: center;
+      padding: .7rem 1rem;
+      font-size: .92rem;
+      transition: background .15s;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .toc-list a:active { background: #E0F7FA; }
+    .day-badge {
+      background: #00ACC1;
+      color: #fff;
+      font-size: .68rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: .65rem;
+      min-width: 3rem;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .toc-date { font-weight: 700; margin-right: .4rem; }
+    .toc-island { color: #555; font-size: .88rem; }
+    .toc-arrow { margin-left: auto; color: #00ACC1; font-size: 1rem; }
+
+    /* ── Day Section ── */
+    .day-section {
+      max-width: 480px;
+      margin: 1.3rem auto;
+      scroll-margin-top: .5rem;
+    }
+    .day-header {
+      background: linear-gradient(135deg, #006064, #00BCD4);
+      color: #fff;
+      border-radius: 14px 14px 0 0;
+      padding: 1rem 1.2rem .85rem;
+    }
+    .day-label {
+      font-size: .72rem;
+      font-weight: 700;
+      opacity: .8;
+      letter-spacing: .1em;
+      margin-bottom: .12rem;
+    }
+    .day-title { font-size: 1.18rem; font-weight: 800; }
+    .transport-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .3rem;
+      background: rgba(255,255,255,.2);
+      border-radius: 20px;
+      padding: .22rem .75rem;
+      font-size: .78rem;
+      font-weight: 600;
+      margin-top: .45rem;
+    }
+
+    .day-body {
+      background: #fff;
+      border-radius: 0 0 14px 14px;
+      padding: 1rem 1.2rem 1.2rem;
+      box-shadow: 0 3px 10px rgba(0,0,0,.08);
+    }
+
+    /* ── Schedule Timeline ── */
+    .schedule { list-style: none; }
+    .schedule li {
+      display: flex;
+      gap: .85rem;
+      padding: .55rem 0;
+      border-bottom: 1px dashed #e5e5e5;
+      font-size: .88rem;
+    }
+    .schedule li:last-child { border-bottom: none; }
+    .s-time {
+      color: #007C8A;
+      font-weight: 700;
+      font-size: .78rem;
+      min-width: 3.1rem;
+      padding-top: .1rem;
+      flex-shrink: 0;
+      line-height: 1.4;
+    }
+    .s-act { flex: 1; }
+    .s-act strong { display: block; font-weight: 700; line-height: 1.45; }
+    .s-act small { color: #777; font-size: .8rem; display: block; margin-top: .1rem; line-height: 1.45; }
+
+    .day-note {
+      font-size: .8rem;
+      color: #777;
+      margin: .5rem 0 .6rem;
+      padding: .45rem .7rem;
+      background: #E0F7FA;
+      border-radius: 7px;
+      border-left: 3px solid #00BCD4;
+    }
+
+    /* ── Hotel Card ── */
+    .hotel-card {
+      margin-top: 1.1rem;
+      background: linear-gradient(135deg, #E0F7FA, #B2EBF2);
+      border-radius: 11px;
+      padding: 1rem 1.1rem;
+      border-left: 4px solid #00ACC1;
+    }
+    .hotel-label {
+      font-size: .7rem;
+      color: #006064;
+      font-weight: 700;
+      letter-spacing: .06em;
+      margin-bottom: .2rem;
+    }
+    .hotel-name {
+      font-size: 1rem;
+      font-weight: 800;
+      color: #003D4D;
+      margin-bottom: .45rem;
+      line-height: 1.4;
+    }
+    .hotel-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+      margin-bottom: .75rem;
+    }
+    .tag {
+      font-size: .7rem;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(255,255,255,.75);
+      color: #006064;
+      border: 1px solid #80DEEA;
+    }
+    .hotel-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .35rem;
+      background: #00838F;
+      color: #fff;
+      padding: .5rem 1.1rem;
+      border-radius: 7px;
+      font-size: .85rem;
+      font-weight: 700;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .hotel-link:active { background: #006064; }
+
+    /* ── Free Day Card ── */
+    .free-option {
+      background: #FFF8E1;
+      border-radius: 9px;
+      padding: .7rem .9rem;
+      margin-bottom: .5rem;
+      border-left: 4px solid #FFB300;
+    }
+    .free-option .opt-label {
+      font-size: .72rem;
+      font-weight: 700;
+      color: #E65100;
+      letter-spacing: .05em;
+      margin-bottom: .2rem;
+    }
+    .free-option p { font-size: .88rem; color: #444; }
+    .free-option small { font-size: .8rem; color: #888; }
+
+    /* ── Home Banner ── */
+    .home-banner {
+      background: linear-gradient(135deg, #FFF3E0, #FFE0B2);
+      border-radius: 11px;
+      padding: 1rem 1.1rem;
+      margin-top: 1rem;
+      border-left: 4px solid #FF7043;
+      text-align: center;
+    }
+    .home-banner p { font-size: .92rem; color: #555; }
+    .home-banner .big { font-size: 1.5rem; margin-bottom: .3rem; }
+
+    /* ── Divider ── */
+    .section-divider {
+      text-align: center;
+      color: #80DEEA;
+      font-size: 1rem;
+      padding: .1rem 0;
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      max-width: 480px;
+      margin: 1.5rem auto 5.5rem;
+      padding: 1rem 1.2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+      font-size: .78rem;
+      color: #999;
+    }
+    .site-footer p { margin-bottom: .25rem; }
+
+    /* ── Back to top ── */
+    .back-to-top {
+      position: fixed;
+      bottom: 1.3rem;
+      right: 1.3rem;
+      background: #00838F;
+      color: #fff;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      box-shadow: 0 4px 14px rgba(0,0,0,.22);
+      z-index: 100;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .back-to-top:active { background: #006064; }
+
+    /* ── Responsive ── */
+    @media (max-width: 510px) {
+      .toc, .day-section, .site-footer {
+        margin-left: .75rem;
+        margin-right: .75rem;
+      }
+    }
+  </style>
+</head>
+<body id="top">
+
+<!-- ════ HEADER ════ -->
+<header class="site-header">
+  <div class="hero-emoji">🌺 🌊 🌴</div>
+  <h1>新婚旅行のしおり</h1>
+  <p class="meta">沖縄本島・宮古島・石垣島｜2026年10月17日（土）〜 24日（土）7泊8日 ✈️ 2名</p>
+</header>
+
+<!-- ════ TOC ════ -->
+<nav class="toc" id="toc">
+  <div class="toc-title">📋 目次（タップで当日へジャンプ）</div>
+  <ul class="toc-list">
+    <li>
+      <a href="#day1">
+        <span class="day-badge">Day 1</span>
+        <span class="toc-date">10/17（土）</span>
+        <span class="toc-island">沖縄本島</span>
+        <span class="toc-arrow">›</span>
+      </a>
+    </li>
+    <li>
+      <a href="#day2">
+        <span class="day-badge">Day 2</span>
+        <span class="toc-date">10/18（日）</span>
+        <span class="toc-island">沖縄本島</span>
+        <span class="toc-arrow">›</span>
+      </a>
+    </li>
+    <li>
+      <a href="#day3">
+        <span class="day-badge">Day 3</span>
+        <span class="toc-date">10/19（月）</span>
+        <span class="toc-island">宮古島</span>
+        <span class="toc-arrow">›</span>
+      </a>
+    </li>
+    <li>
+      <a href="#day4">
+        <span class="day-badge">Day 4</span>
+        <span class="toc-date">10/20（火）</span>
+        <span class="toc-island">宮古島</span>
+        <span class="toc-arrow">›</span>
+      </a>
+    </li>
+    <li>
+      <a href="#day5">
+        <span class="day-badge">Day 5</span>
+        <span class="toc-date">10/21（水）</span>
+        <span class="toc-island">石垣島</span>
+        <span class="toc-arrow">›</span>
+      </a>
+    </li>
+    <li>
+      <a href="#day6">
+        <span class="day-badge">Day 6</span>
+        <span class="toc-date">10/22（木）</span>
+        <span class="toc-island">石垣島 ＋ 竹富島</span>
+        <span class="toc-arrow">›</span>
+      </a>
+    </li>
+    <li>
+      <a href="#day7">
+        <span class="day-badge">Day 7</span>
+        <span class="toc-date">10/23（金）</span>
+        <span class="toc-island">石垣島（予備日）</span>
+        <span class="toc-arrow">›</span>
+      </a>
+    </li>
+    <li>
+      <a href="#day8">
+        <span class="day-badge">Day 8</span>
+        <span class="toc-date">10/24（土）</span>
+        <span class="toc-island">帰路</span>
+        <span class="toc-arrow">›</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- ════ DAY 1 ════ -->
+<section class="day-section" id="day1">
+  <div class="day-header">
+    <div class="day-label">DAY 1</div>
+    <div class="day-title">10月17日（土）沖縄本島</div>
+    <div class="transport-badge">✈️ 羽田 → 那覇</div>
+  </div>
+  <div class="day-body">
+    <ul class="schedule">
+      <li>
+        <span class="s-time">着後〜</span>
+        <span class="s-act">
+          <strong>🚗 那覇空港 到着 ＆ レンタカー受取</strong>
+          <small>空港内に各社カウンターあり。要事前予約。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">11:30</span>
+        <span class="s-act">
+          <strong>🌊 瀬長島ウミカジテラス</strong>
+          <small>空港から車15分。飛行機が真上を飛ぶ海沿いのテラスモール。昼食＋カフェ＋散策。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">13:30</span>
+        <span class="s-act">
+          <strong>⛩️ 斎場御嶽（せーふぁうたき）</strong>
+          <small>南部・世界遺産。琉球王国最高の聖地。神秘的な三庫理（サングーイ）必見。⚠️ 週により休息日あり、歩きやすい靴で。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">14:30</span>
+        <span class="s-act">
+          <strong>📷 ニライカナイ橋</strong>
+          <small>南城市。高台から太平洋を一望できる展望台。記念撮影スポット。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">16:00</span>
+        <span class="s-act">
+          <strong>🌅 万座毛</strong>
+          <small>恩納村。象の鼻型の断崖絶壁と夕日の海。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">17:30</span>
+        <span class="s-act">
+          <strong>🏨 チェックイン</strong>
+          <small>カフー リゾート フチャク コンド・ホテル（恩納村・西海岸）</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">19:00</span>
+        <span class="s-act">
+          <strong>🍽️ 夕食</strong>
+          <small>ホテル内 or 恩納村の海鮮・沖縄料理店。</small>
+        </span>
+      </li>
+    </ul>
+
+    <div class="hotel-card">
+      <div class="hotel-label">🛏️ 1泊目</div>
+      <div class="hotel-name">カフー リゾート フチャク コンド・ホテル</div>
+      <div class="hotel-tags">
+        <span class="tag">全室オーシャンビュー</span>
+        <span class="tag">ビーチ直結</span>
+        <span class="tag">プールあり</span>
+        <span class="tag">恩納村・西海岸</span>
+      </div>
+      <a class="hotel-link" href="https://travel.rakuten.co.jp/HOTEL/78239/78239.html" target="_blank" rel="noopener">
+        🔗 楽天トラベルで予約
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">•&nbsp;•&nbsp;•</div>
+
+<!-- ════ DAY 2 ════ -->
+<section class="day-section" id="day2">
+  <div class="day-header">
+    <div class="day-label">DAY 2</div>
+    <div class="day-title">10月18日（日）沖縄本島</div>
+  </div>
+  <div class="day-body">
+    <ul class="schedule">
+      <li>
+        <span class="s-time">08:00</span>
+        <span class="s-act"><strong>🍳 朝食（ホテル）</strong></span>
+      </li>
+      <li>
+        <span class="s-time">09:00</span>
+        <span class="s-act">
+          <strong>🚗 出発 → 北部へ</strong>
+          <small>恩納村から美ら海水族館まで車約1時間ドライブ。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">10:00</span>
+        <span class="s-act">
+          <strong>🐋 沖縄美ら海水族館 ＆ 海洋博公園</strong>
+          <small>ジンベエザメ・マンタの大水槽「黒潮の海」は圧巻。イルカショー（無料）も。公園内で昼食。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">13:30</span>
+        <span class="s-act">
+          <strong>🌳 備瀬のフクギ並木</strong>
+          <small>水族館すぐ北。樹齢数百年のフクギが作る緑のトンネル。レンタサイクルで散策。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">14:30</span>
+        <span class="s-act">
+          <strong>🌉 古宇利島</strong>
+          <small>全長1,960mの古宇利大橋を渡る絶景ドライブ。ハートロック・古宇利ビーチで海を満喫。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">16:00</span>
+        <span class="s-act">
+          <strong>🚗 那覇へ南下</strong>
+          <small>沖縄自動車道を利用。約1時間30分。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">18:00</span>
+        <span class="s-act">
+          <strong>🏨 チェックイン</strong>
+          <small>ハイアット リージェンシー 那覇（国際通り 徒歩3分）</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">19:00</span>
+        <span class="s-act">
+          <strong>🍶 国際通り ＆ 牧志公設市場</strong>
+          <small>夕食（市場2階の食堂 or 国際通りの居酒屋）。泡盛・お土産の買い物。</small>
+        </span>
+      </li>
+    </ul>
+
+    <div class="hotel-card">
+      <div class="hotel-label">🛏️ 2泊目</div>
+      <div class="hotel-name">ハイアット リージェンシー 那覇 沖縄</div>
+      <div class="hotel-tags">
+        <span class="tag">全室禁煙</span>
+        <span class="tag">国際通り徒歩3分</span>
+        <span class="tag">屋外プールあり</span>
+        <span class="tag">那覇市街地</span>
+      </div>
+      <a class="hotel-link" href="https://travel.rakuten.co.jp/HOTEL/148000/148000.html" target="_blank" rel="noopener">
+        🔗 楽天トラベルで予約
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">•&nbsp;•&nbsp;•</div>
+
+<!-- ════ DAY 3 ════ -->
+<section class="day-section" id="day3">
+  <div class="day-header">
+    <div class="day-label">DAY 3</div>
+    <div class="day-title">10月19日（月）宮古島</div>
+    <div class="transport-badge">✈️ 那覇 → 宮古島</div>
+  </div>
+  <div class="day-body">
+    <ul class="schedule">
+      <li>
+        <span class="s-time">07:30</span>
+        <span class="s-act"><strong>🍳 朝食（ホテル）</strong></span>
+      </li>
+      <li>
+        <span class="s-time">08:15</span>
+        <span class="s-act">
+          <strong>🧳 チェックアウト ＆ レンタカー返却</strong>
+          <small>那覇空港近くの返却場所へ。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">09:00</span>
+        <span class="s-act">
+          <strong>✈️ 那覇空港 出発</strong>
+          <small>那覇 → 宮古島（飛行時間 約50分）</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">10:35</span>
+        <span class="s-act">
+          <strong>🏝️ 宮古空港 到着 ＆ レンタカー受取</strong>
+          <small>空港出口にカウンター集結。要事前予約。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">11:30</span>
+        <span class="s-act">
+          <strong>🍜 昼食 ― 宮古そば</strong>
+          <small>老舗「古謝そば屋」など。宮古グルメ初体験！</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">13:00</span>
+        <span class="s-act">
+          <strong>🏨 東急ホテル 到着・荷物預け</strong>
+          <small>アーリーチェックインは事前に確認を。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">14:00</span>
+        <span class="s-act">
+          <strong>🏄 与那覇前浜ビーチ SAP（スタンドアップパドル）</strong>
+          <small>東洋一とも称される白砂の浜。ホテル目の前のアクティビティカウンターで申込可。波穏やかで初心者OK。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">17:30</span>
+        <span class="s-act">
+          <strong>🌅 前浜のサンセット</strong>
+          <small>西向きビーチ。10月は17:30〜18:00頃が日没。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">19:00</span>
+        <span class="s-act">
+          <strong>🍽️ 夕食</strong>
+          <small>ホテルレストランまたは市街地（車10〜15分）。</small>
+        </span>
+      </li>
+    </ul>
+
+    <div class="hotel-card">
+      <div class="hotel-label">🛏️ 3泊目</div>
+      <div class="hotel-name">宮古島東急ホテル＆リゾーツ</div>
+      <div class="hotel-tags">
+        <span class="tag">前浜ビーチ直結</span>
+        <span class="tag">オーシャンビュー指定</span>
+        <span class="tag">空港シャトルあり</span>
+        <span class="tag">SAPカウンター目の前</span>
+      </div>
+      <a class="hotel-link" href="https://www.tokyuhotels.co.jp/miyakojima-r/" target="_blank" rel="noopener">
+        🔗 公式サイト（東急ホテルズ）で予約
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">•&nbsp;•&nbsp;•</div>
+
+<!-- ════ DAY 4 ════ -->
+<section class="day-section" id="day4">
+  <div class="day-header">
+    <div class="day-label">DAY 4</div>
+    <div class="day-title">10月20日（火）宮古島</div>
+  </div>
+  <div class="day-body">
+    <ul class="schedule">
+      <li>
+        <span class="s-time">08:30</span>
+        <span class="s-act"><strong>🍳 朝食（東急ホテル）</strong></span>
+      </li>
+      <li>
+        <span class="s-time">09:30</span>
+        <span class="s-act">
+          <strong>🧳 チェックアウト → 伊良部大橋へ出発</strong>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">09:45</span>
+        <span class="s-act">
+          <strong>🌉 伊良部大橋ドライブ</strong>
+          <small>全長3,540m、無料・日本最長の橋。橋の手前の展望スペースから宮古ブルーの絶景を撮影 📷</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">10:00</span>
+        <span class="s-act">
+          <strong>✈️ 17END（下地島空港 南端）</strong>
+          <small>旧パイロット訓練場跡。エメラルドグリーンの海と旅客機のコラボが撮れる映えスポット。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">11:00</span>
+        <span class="s-act">
+          <strong>🌀 通り池</strong>
+          <small>国指定天然記念物。陸の池が海底洞窟で海とつながる神秘の地形。遊歩道で徒歩約15分。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">12:30</span>
+        <span class="s-act">
+          <strong>🍜 昼食 ― 伊良部島の食堂</strong>
+          <small>「まるよし食堂」等で伊良部そば。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">13:30</span>
+        <span class="s-act">
+          <strong>🌊 佐和田の浜</strong>
+          <small>日本の渚百選。無数の岩礁が点在する独特の景観。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">14:30</span>
+        <span class="s-act">
+          <strong>🚗 宮古本島へ帰還</strong>
+          <small>伊良部大橋を渡って戻る。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">15:00</span>
+        <span class="s-act">
+          <strong>🏖️ 砂山ビーチ</strong>
+          <small>本島北西部。奇岩・洞窟がある映えスポット。夕方は人が少なく穴場。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">16:30</span>
+        <span class="s-act">
+          <strong>🏨 チェックイン</strong>
+          <small>ヒルトン沖縄宮古島リゾート</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">19:00</span>
+        <span class="s-act">
+          <strong>🥩 夕食 ― 宮古牛の焼肉・居酒屋</strong>
+          <small>市街地の名店へ（ヒルトンから車5〜10分）。</small>
+        </span>
+      </li>
+    </ul>
+
+    <div class="hotel-card">
+      <div class="hotel-label">🛏️ 4泊目</div>
+      <div class="hotel-name">ヒルトン沖縄宮古島リゾート</div>
+      <div class="hotel-tags">
+        <span class="tag">Hilton Honorsポイント利用</span>
+        <span class="tag">2023年開業</span>
+        <span class="tag">市街地・海近接</span>
+        <span class="tag">オーシャンビュー指定</span>
+      </div>
+      <a class="hotel-link" href="https://www.hilton.com/ja/hotels/mmyfmhi-hilton-okinawa-miyakojima-resort/" target="_blank" rel="noopener">
+        🔗 Hilton公式サイトで予約
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">•&nbsp;•&nbsp;•</div>
+
+<!-- ════ DAY 5 ════ -->
+<section class="day-section" id="day5">
+  <div class="day-header">
+    <div class="day-label">DAY 5</div>
+    <div class="day-title">10月21日（水）石垣島</div>
+    <div class="transport-badge">✈️ 宮古島 → 石垣島</div>
+  </div>
+  <div class="day-body">
+    <ul class="schedule">
+      <li>
+        <span class="s-time">朝</span>
+        <span class="s-act">
+          <strong>🧳 チェックアウト ＆ レンタカー返却 → 宮古空港へ</strong>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">午前中</span>
+        <span class="s-act">
+          <strong>✈️ 石垣空港 到着 ＆ レンタカー受取</strong>
+          <small>宮古→石垣 飛行時間 約35〜40分。石垣空港に各社カウンターあり。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">昼食</span>
+        <span class="s-act">
+          <strong>🍜 八重山そば・海鮮</strong>
+          <small>石垣市街地または空港周辺で。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">14:00</span>
+        <span class="s-act">
+          <strong>🌊 川平湾（かびらわん）</strong>
+          <small>石垣島随一の絶景スポット。エメラルドグリーンの海と白砂の湾。グラスボート（約30分・¥1,200/人）でサンゴ・熱帯魚を観察。⚠️ 遊泳禁止（海流強）</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">17:00</span>
+        <span class="s-act">
+          <strong>🏨 チェックイン</strong>
+          <small>グランヴィリオリゾート石垣島</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">19:00</span>
+        <span class="s-act">
+          <strong>🥩 夕食 ― 八重山料理・石垣牛</strong>
+          <small>石垣市街地（離島ターミナル周辺）の焼肉・居酒屋。</small>
+        </span>
+      </li>
+    </ul>
+
+    <div class="hotel-card">
+      <div class="hotel-label">🛏️ 5〜7泊目（3連泊）</div>
+      <div class="hotel-name">グランヴィリオリゾート石垣島</div>
+      <div class="hotel-tags">
+        <span class="tag">オーシャンビュー指定</span>
+        <span class="tag">大浴場・サウナ</span>
+        <span class="tag">プールあり</span>
+        <span class="tag">空港シャトルあり</span>
+        <span class="tag">竹富フェリー乗り場まで車10分</span>
+      </div>
+      <a class="hotel-link" href="https://travel.rakuten.co.jp/HOTEL/69360/69360.html" target="_blank" rel="noopener">
+        🔗 楽天トラベルで予約
+      </a>
+    </div>
+  </div>
+</section>
+
+<div class="section-divider">•&nbsp;•&nbsp;•</div>
+
+<!-- ════ DAY 6 ════ -->
+<section class="day-section" id="day6">
+  <div class="day-header">
+    <div class="day-label">DAY 6</div>
+    <div class="day-title">10月22日（木）石垣島 ＋ 竹富島</div>
+  </div>
+  <div class="day-body">
+    <ul class="schedule">
+      <li>
+        <span class="s-time">07:30</span>
+        <span class="s-act"><strong>🍳 朝食（ホテル）</strong></span>
+      </li>
+      <li>
+        <span class="s-time">08:30</span>
+        <span class="s-act">
+          <strong>🚗 石垣港 離島ターミナルへ出発</strong>
+          <small>ホテルから車約10分。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">09:00</span>
+        <span class="s-act">
+          <strong>⛴️ フェリー乗船（石垣 → 竹富島）</strong>
+          <small>所要約15分。往復 ¥1,500/人程度。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">09:20</span>
+        <span class="s-act"><strong>🏝️ 竹富島 到着</strong></span>
+      </li>
+      <li>
+        <span class="s-time">09:30</span>
+        <span class="s-act">
+          <strong>🐂 水牛車観光</strong>
+          <small>集落内をのんびり周遊（約30分）。三線の演奏を聴きながら沖縄時間を楽しむ。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">10:30</span>
+        <span class="s-act">
+          <strong>🏘️ 集落散策 ＆ コンドイビーチ</strong>
+          <small>白壁・赤瓦の伝統的な琉球集落をのんびり散歩。コンドイビーチは遠浅で遊泳可 🌊</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">12:00</span>
+        <span class="s-act">
+          <strong>🍜 昼食 ― 竹富島の食堂</strong>
+          <small>「竹富食堂」等でソーキそば。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">13:30</span>
+        <span class="s-act">
+          <strong>⛴️ フェリーで石垣へ帰還</strong>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">15:00</span>
+        <span class="s-act">
+          <strong>🕳️ 石垣島鍾乳洞（オプション）</strong>
+          <small>全長3.2km、国指定天然記念物。雨天でも楽しめる。</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">20:00</span>
+        <span class="s-act">
+          <strong>🌃 バンナ公園 ― 夜景</strong>
+          <small>石垣市街と港、夜の海を一望。展望台まで車でアクセス可。⚠️ 街灯が少ないため懐中電灯推奨。</small>
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="section-divider">•&nbsp;•&nbsp;•</div>
+
+<!-- ════ DAY 7 ════ -->
+<section class="day-section" id="day7">
+  <div class="day-header">
+    <div class="day-label">DAY 7</div>
+    <div class="day-title">10月23日（金）石垣島 ― 予備日</div>
+  </div>
+  <div class="day-body">
+    <p class="day-note">🗓️ 天候・体調に合わせて自由にアレンジ！お好みで選んでね。</p>
+
+    <div class="free-option">
+      <div class="opt-label">🅐 北部ドライブ案</div>
+      <p>玉取崎展望台（ハイビスカスに囲まれた絶景） → 平久保崎灯台（石垣島最北端・360°の青い海）</p>
+    </div>
+
+    <div class="free-option">
+      <div class="opt-label">🅑 ビーチ ＆ お土産案</div>
+      <p>底地（すくじ）ビーチ（遠浅・地元民に人気）→ 石垣市公設市場（泡盛・島豆腐・みそ）→ ゆいロード散策</p>
+    </div>
+
+    <ul class="schedule" style="margin-top:.8rem;">
+      <li>
+        <span class="s-time">夕〜夜</span>
+        <span class="s-act">
+          <strong>🍽️ ゆっくりディナー</strong>
+          <small>石垣牛ステーキを市街地の名店で。旅の思い出の締めくくり 🥂</small>
+        </span>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<div class="section-divider">•&nbsp;•&nbsp;•</div>
+
+<!-- ════ DAY 8 ════ -->
+<section class="day-section" id="day8">
+  <div class="day-header">
+    <div class="day-label">DAY 8</div>
+    <div class="day-title">10月24日（土）帰路</div>
+    <div class="transport-badge">✈️ 石垣島 → 羽田</div>
+  </div>
+  <div class="day-body">
+    <ul class="schedule">
+      <li>
+        <span class="s-time">朝</span>
+        <span class="s-act">
+          <strong>🍳 朝食（便の時間次第）</strong>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">出発前</span>
+        <span class="s-act">
+          <strong>🧳 チェックアウト ＆ レンタカー返却</strong>
+          <small>最後のお土産・公設市場（時間があれば）</small>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">午前〜昼</span>
+        <span class="s-act">
+          <strong>✈️ 新石垣空港 出発 → 羽田到着</strong>
+          <small>石垣→羽田 直行便で約2時間45分。</small>
+        </span>
+      </li>
+    </ul>
+
+    <div class="home-banner">
+      <div class="big">🏠 🌺 ✨</div>
+      <p>おつかれさまでした！素敵な思い出をありがとう。</p>
+      <p style="font-size:.8rem; color:#888; margin-top:.3rem;">羽田から浦和美園まで約1時間。ゆっくり帰ろう。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ════ -->
+<footer class="site-footer">
+  <p>⚠️ 価格・空室・アクティビティ営業状況は変動します。最終確認は各リンク先（公式サイト・楽天・Hilton）で行ってください。</p>
+  <p style="margin-top:.4rem; color:#bbb;">最終更新: 2026-07-23</p>
+</footer>
+
+<!-- ════ Back to Top ════ -->
+<a href="#toc" class="back-to-top" title="目次へ戻る">▲</a>
+
+</body>
+</html>
