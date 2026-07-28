@@ -273,6 +273,35 @@
         margin-right: .75rem;
       }
     }
+
+    /* ── PC表示：目次を左に固定した2カラム構成 ── */
+    @media (min-width: 900px) {
+      .layout {
+        display: flex;
+        align-items: flex-start;
+        gap: 2rem;
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
+      .toc {
+        position: sticky;
+        top: 1.5rem;
+        flex: 0 0 280px;
+        max-width: 280px;
+        margin: 1.3rem 0 0;
+      }
+      .main-content {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+      .main-content .day-section,
+      .main-content .site-footer {
+        max-width: 100%;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
   </style>
 </head>
 <body id="top">
@@ -283,6 +312,8 @@
   <h1>新婚旅行のしおり</h1>
   <p class="meta">沖縄本島・宮古島・石垣島｜2026年10月17日（土）〜 24日（土）7泊8日 ✈️ 2名</p>
 </header>
+
+<div class="layout">
 
 <!-- ════ TOC ════ -->
 <nav class="toc" id="toc">
@@ -355,41 +386,37 @@
   </ul>
 </nav>
 
+<div class="main-content">
+
 <!-- ════ DAY 1 ════ -->
 <section class="day-section" id="day1">
   <div class="day-header">
     <div class="day-label">DAY 1</div>
     <div class="day-title">10月17日（土）沖縄本島</div>
-    <div class="transport-badge">✈️ 羽田 → 那覇</div>
+    <div class="transport-badge">✈️ JAL909 羽田09:40 → 那覇12:20</div>
   </div>
   <div class="day-body">
+    <p class="day-note">🎫 フライト予約番号 EH4O63（実予約済）。到着が12:20のため、今回は南部（斎場御嶽・ニライカナイ橋）は見送り、恩納村へ直行します。<br>🏨 宿泊予約番号 RYa0n5132j（予約済）。</p>
     <ul class="schedule">
       <li>
-        <span class="s-time">着後〜</span>
+        <span class="s-time">12:20</span>
         <span class="s-act">
           <strong>🚗 那覇空港 到着 ＆ レンタカー受取</strong>
           <small>空港内に各社カウンターあり。要事前予約。</small>
         </span>
       </li>
       <li>
-        <span class="s-time">11:30</span>
-        <span class="s-act">
-          <strong>🌊 瀬長島ウミカジテラス</strong>
-          <small>空港から車15分。飛行機が真上を飛ぶ海沿いのテラスモール。昼食＋カフェ＋散策。</small>
-        </span>
-      </li>
-      <li>
         <span class="s-time">13:30</span>
         <span class="s-act">
-          <strong>⛩️ 斎場御嶽（せーふぁうたき）</strong>
-          <small>南部・世界遺産。琉球王国最高の聖地。神秘的な三庫理（サングーイ）必見。⚠️ 週により休息日あり、歩きやすい靴で。</small>
+          <strong>🌊 瀬長島ウミカジテラス</strong>
+          <small>空港から車15分。飛行機が真上を飛ぶ海沿いのテラスモールで昼食＋カフェ＋散策。</small>
         </span>
       </li>
       <li>
         <span class="s-time">14:30</span>
         <span class="s-act">
-          <strong>📷 ニライカナイ橋</strong>
-          <small>南城市。高台から太平洋を一望できる展望台。記念撮影スポット。</small>
+          <strong>🚗 恩納村へ北上</strong>
+          <small>沖縄自動車道利用・約1時間。</small>
         </span>
       </li>
       <li>
@@ -400,7 +427,7 @@
         </span>
       </li>
       <li>
-        <span class="s-time">17:30</span>
+        <span class="s-time">17:00</span>
         <span class="s-act">
           <strong>🏨 チェックイン</strong>
           <small>カフー リゾート フチャク コンド・ホテル（恩納村・西海岸）</small>
@@ -440,6 +467,7 @@
     <div class="day-title">10月18日（日）沖縄本島</div>
   </div>
   <div class="day-body">
+    <p class="day-note">🏨 宿泊予約番号 RYa0n513k6（予約済）。</p>
     <ul class="schedule">
       <li>
         <span class="s-time">08:00</span>
@@ -519,9 +547,10 @@
   <div class="day-header">
     <div class="day-label">DAY 3</div>
     <div class="day-title">10月19日（月）宮古島</div>
-    <div class="transport-badge">✈️ 那覇 → 宮古島</div>
+    <div class="transport-badge">✈️ ANA1723 那覇09:45 → 宮古10:35</div>
   </div>
   <div class="day-body">
+    <p class="day-note">🎫 フライト予約番号 EHA353（実予約済）。<br>🏨 宿泊予約番号 RYa0n55spy（ホテルブリーズベイマリーナ・2連泊で予約済）。</p>
     <ul class="schedule">
       <li>
         <span class="s-time">07:30</span>
@@ -535,10 +564,10 @@
         </span>
       </li>
       <li>
-        <span class="s-time">09:00</span>
+        <span class="s-time">09:45</span>
         <span class="s-act">
           <strong>✈️ 那覇空港 出発</strong>
-          <small>那覇 → 宮古島（飛行時間 約50分）</small>
+          <small>那覇 → 宮古島（ANA1723・飛行時間 約50分）</small>
         </span>
       </li>
       <li>
@@ -558,7 +587,7 @@
       <li>
         <span class="s-time">13:00</span>
         <span class="s-act">
-          <strong>🏨 東急ホテル 到着・荷物預け</strong>
+          <strong>🏨 ホテルブリーズベイマリーナ 到着・チェックイン</strong>
           <small>アーリーチェックインは事前に確認を。</small>
         </span>
       </li>
@@ -566,7 +595,7 @@
         <span class="s-time">14:00</span>
         <span class="s-act">
           <strong>🏄 与那覇前浜ビーチ SAP（スタンドアップパドル）</strong>
-          <small>東洋一とも称される白砂の浜。ホテル目の前のアクティビティカウンターで申込可。波穏やかで初心者OK。</small>
+          <small>ホテルから車で約20分。東洋一とも称される白砂の浜。現地のアクティビティカウンターで申込可。波穏やかで初心者OK。</small>
         </span>
       </li>
       <li>
@@ -580,22 +609,22 @@
         <span class="s-time">19:00</span>
         <span class="s-act">
           <strong>🍽️ 夕食</strong>
-          <small>ホテルレストランまたは市街地（車10〜15分）。</small>
+          <small>シギラリゾート内 or 市街地（車20分程度）。</small>
         </span>
       </li>
     </ul>
 
     <div class="hotel-card">
-      <div class="hotel-label">🛏️ 3泊目</div>
-      <div class="hotel-name">宮古島東急ホテル＆リゾーツ</div>
+      <div class="hotel-label">🛏️ 3〜4泊目（2連泊）</div>
+      <div class="hotel-name">ホテルブリーズベイマリーナ＜宮古島＞</div>
       <div class="hotel-tags">
-        <span class="tag">前浜ビーチ直結</span>
-        <span class="tag">オーシャンビュー指定</span>
-        <span class="tag">空港シャトルあり</span>
-        <span class="tag">SAPカウンター目の前</span>
+        <span class="tag">予約番号 RYa0n55spy</span>
+        <span class="tag">全室禁煙</span>
+        <span class="tag">シギラエリア・空港近い</span>
+        <span class="tag">オーシャンビュー</span>
       </div>
-      <a class="hotel-link" href="https://www.tokyuhotels.co.jp/miyakojima-r/" target="_blank" rel="noopener">
-        🔗 公式サイト（東急ホテルズ）で予約
+      <a class="hotel-link" href="https://hotel.travel.rakuten.co.jp/hotelinfo/plan/56659" target="_blank" rel="noopener">
+        🔗 楽天トラベルで詳細を見る
       </a>
     </div>
   </div>
@@ -613,12 +642,13 @@
     <ul class="schedule">
       <li>
         <span class="s-time">08:30</span>
-        <span class="s-act"><strong>🍳 朝食（東急ホテル）</strong></span>
+        <span class="s-act"><strong>🍳 朝食（ブリーズベイマリーナ）</strong></span>
       </li>
       <li>
         <span class="s-time">09:30</span>
         <span class="s-act">
-          <strong>🧳 チェックアウト → 伊良部大橋へ出発</strong>
+          <strong>🚗 伊良部大橋へ出発</strong>
+          <small>連泊のため荷物はそのまま。</small>
         </span>
       </li>
       <li>
@@ -673,32 +703,18 @@
       <li>
         <span class="s-time">16:30</span>
         <span class="s-act">
-          <strong>🏨 チェックイン</strong>
-          <small>ヒルトン沖縄宮古島リゾート</small>
+          <strong>🏨 ホテルブリーズベイマリーナへ戻る</strong>
+          <small>連泊のため手続き不要。</small>
         </span>
       </li>
       <li>
         <span class="s-time">19:00</span>
         <span class="s-act">
-          <strong>🥩 夕食 ― 宮古牛の焼肉・居酒屋</strong>
-          <small>市街地の名店へ（ヒルトンから車5〜10分）。</small>
+          <strong>🥩 夕食 ― シギラリゾート内 or 宮古牛の焼肉・居酒屋</strong>
+          <small>市街地の名店は車20分程度。</small>
         </span>
       </li>
     </ul>
-
-    <div class="hotel-card">
-      <div class="hotel-label">🛏️ 4泊目</div>
-      <div class="hotel-name">ヒルトン沖縄宮古島リゾート</div>
-      <div class="hotel-tags">
-        <span class="tag">Hilton Honorsポイント利用</span>
-        <span class="tag">2023年開業</span>
-        <span class="tag">市街地・海近接</span>
-        <span class="tag">オーシャンビュー指定</span>
-      </div>
-      <a class="hotel-link" href="https://www.hilton.com/ja/hotels/mmyfmhi-hilton-okinawa-miyakojima-resort/" target="_blank" rel="noopener">
-        🔗 Hilton公式サイトで予約
-      </a>
-    </div>
   </div>
 </section>
 
@@ -709,28 +725,29 @@
   <div class="day-header">
     <div class="day-label">DAY 5</div>
     <div class="day-title">10月21日（水）石垣島</div>
-    <div class="transport-badge">✈️ 宮古島 → 石垣島</div>
+    <div class="transport-badge">✈️ ANA1791 宮古08:45 → 石垣09:20</div>
   </div>
   <div class="day-body">
+    <p class="day-note">🎫 フライト予約番号 EHH3UJ（実予約済）。シギラエリアは空港近いので早朝便でも余裕あり。<br>🏨 宿泊予約番号 RYa0n5326x（グランヴィリオリゾート石垣島・3連泊で予約済）。</p>
     <ul class="schedule">
       <li>
-        <span class="s-time">朝</span>
+        <span class="s-time">06:00</span>
         <span class="s-act">
-          <strong>🧳 チェックアウト ＆ レンタカー返却 → 宮古空港へ</strong>
+          <strong>🧳 早朝チェックアウト ＆ レンタカー返却 → 宮古空港へ</strong>
         </span>
       </li>
       <li>
-        <span class="s-time">午前中</span>
+        <span class="s-time">09:20</span>
         <span class="s-act">
           <strong>✈️ 石垣空港 到着 ＆ レンタカー受取</strong>
-          <small>宮古→石垣 飛行時間 約35〜40分。石垣空港に各社カウンターあり。</small>
+          <small>宮古→石垣 ANA1791便（35分）。石垣空港に各社カウンターあり。</small>
         </span>
       </li>
       <li>
         <span class="s-time">昼食</span>
         <span class="s-act">
           <strong>🍜 八重山そば・海鮮</strong>
-          <small>石垣市街地または空港周辺で。</small>
+          <small>石垣市街地または空港周辺で。早朝到着なので午前中に余裕あり。</small>
         </span>
       </li>
       <li>
@@ -890,28 +907,35 @@
   <div class="day-header">
     <div class="day-label">DAY 8</div>
     <div class="day-title">10月24日（土）帰路</div>
-    <div class="transport-badge">✈️ 石垣島 → 羽田</div>
+    <div class="transport-badge">✈️ JAL972 石垣11:20 → 羽田14:05（直行）</div>
   </div>
   <div class="day-body">
+    <p class="day-note">🎫 フライト予約番号 EHL24P（実予約済）。</p>
     <ul class="schedule">
       <li>
-        <span class="s-time">朝</span>
+        <span class="s-time">08:00</span>
         <span class="s-act">
-          <strong>🍳 朝食（便の時間次第）</strong>
+          <strong>🍳 朝食（ホテル）</strong>
         </span>
       </li>
       <li>
-        <span class="s-time">出発前</span>
+        <span class="s-time">09:30</span>
         <span class="s-act">
-          <strong>🧳 チェックアウト ＆ レンタカー返却</strong>
-          <small>最後のお土産・公設市場（時間があれば）</small>
+          <strong>🧳 チェックアウト ＆ 最終買い物</strong>
+          <small>公設市場など（時間があれば）</small>
         </span>
       </li>
       <li>
-        <span class="s-time">午前〜昼</span>
+        <span class="s-time">10:30</span>
+        <span class="s-act">
+          <strong>🚗 レンタカー返却 ＆ 空港チェックイン</strong>
+        </span>
+      </li>
+      <li>
+        <span class="s-time">11:20</span>
         <span class="s-act">
           <strong>✈️ 新石垣空港 出発 → 羽田到着</strong>
-          <small>石垣→羽田 直行便で約2時間45分。</small>
+          <small>JAL972・直行便で約2時間45分。羽田14:05着。</small>
         </span>
       </li>
     </ul>
@@ -926,9 +950,13 @@
 
 <!-- ════ FOOTER ════ -->
 <footer class="site-footer">
-  <p>⚠️ 価格・空室・アクティビティ営業状況は変動します。最終確認は各リンク先（公式サイト・楽天・Hilton）で行ってください。</p>
-  <p style="margin-top:.4rem; color:#bbb;">最終更新: 2026-07-23</p>
+  <p>✈️ 航空券4区間、🏨 宿4件（カフー・ハイアット那覇・ブリーズベイマリーナ・グランヴィリオ）ともにすべて予約確定済みです（2026-07-28時点）。</p>
+  <p>⚠️ アクティビティ営業状況は変動します。最終確認は各リンク先（公式サイト・楽天）で行ってください。</p>
+  <p style="margin-top:.4rem; color:#bbb;">最終更新: 2026-07-28</p>
 </footer>
+
+</div><!-- /main-content -->
+</div><!-- /layout -->
 
 <!-- ════ Back to Top ════ -->
 <a href="#toc" class="back-to-top" title="目次へ戻る">▲</a>
